@@ -113,7 +113,7 @@ public class NewModelPopupWindow extends PopupWindow implements ModelDataJsonCon
 
   protected void addButtons() {
     
-    // Create
+    // 添加模型
     Button createButton = new Button(i18nManager.getMessage(Messages.PROCESS_NEW_POPUP_CREATE_BUTTON));
     createButton.setWidth("200px");
     createButton.addListener(new ClickListener() {
@@ -152,6 +152,7 @@ public class NewModelPopupWindow extends PopupWindow implements ModelDataJsonCon
             modelData.setName((String) nameTextField.getValue());
             
             repositoryService.saveModel(modelData);
+            //如果id为空. 即为增加  否则为删除后更新
             repositoryService.addModelEditorSource(modelData.getId(), editorNode.toString().getBytes("utf-8"));
             
             close();
