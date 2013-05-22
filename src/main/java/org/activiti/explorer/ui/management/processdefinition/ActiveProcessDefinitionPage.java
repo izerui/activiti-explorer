@@ -25,6 +25,7 @@ import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.ui.Table;
 
 /**
+ * 流程定义页面
  * @author Joram Barrez
  */
 public class ActiveProcessDefinitionPage extends ManagementPage {

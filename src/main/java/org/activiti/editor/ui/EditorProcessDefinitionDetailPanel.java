@@ -218,7 +218,7 @@ public class EditorProcessDefinitionDetailPanel extends DetailPanel {
     emptySpace.setSizeUndefined();
     container.addComponent(emptySpace);
   }
-  
+  //TODO 导出模型
   protected void exportModel() {
     final FileResource stream = new FileResource(new File(""), ExplorerApp.get()) {
       
@@ -261,6 +261,7 @@ public class EditorProcessDefinitionDetailPanel extends DetailPanel {
     ExplorerApp.get().getMainWindow().open(stream);
   }
   
+  //TODO 部署模型
   protected void deployModel() {
     try {
       

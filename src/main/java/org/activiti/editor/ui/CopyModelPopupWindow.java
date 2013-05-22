@@ -118,7 +118,7 @@ public class CopyModelPopupWindow extends PopupWindow implements ModelDataJsonCo
     createButton.addListener(new ClickListener() {
       
       private static final long serialVersionUID = 1L;
-
+//TODO 复制模型
       public void buttonClick(ClickEvent event) {
         
         if (StringUtils.isEmpty((String) nameTextField.getValue())) {

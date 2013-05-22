@@ -67,7 +67,7 @@ public class EditorProcessDefinitionInfoComponent extends VerticalLayout {
     
     initImage();
   }
-  
+  //TODO 部署生成图片
   protected void initImage() {
     processImageContainer = new VerticalLayout();
     
