@@ -115,7 +115,7 @@ public class ConvertProcessDefinitionPopupWindow extends PopupWindow implements 
     convertButton.addListener(new ClickListener() {
       
       private static final long serialVersionUID = 1L;
-
+      //TODO 转换为可编辑模型
       public void buttonClick(ClickEvent event) {
         
         try {
