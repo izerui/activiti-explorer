@@ -79,6 +79,7 @@ public class DeploymentDetailPanel extends DetailPanel {
     addActions();
   }
   
+  //TODO 部署详细信息 删除按钮
   protected void addActions() {
     // Delete button
     Button deleteButton = new Button(i18nManager.getMessage(Messages.DEPLOYMENT_DELETE));

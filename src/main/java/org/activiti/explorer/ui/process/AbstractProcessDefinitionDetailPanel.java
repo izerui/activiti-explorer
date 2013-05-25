@@ -142,13 +142,13 @@ public abstract class AbstractProcessDefinitionDetailPanel extends DetailPanel {
     propertiesLayout.setSpacing(true);
     details.addComponent(propertiesLayout);
     
-    // Version
+    //TODO Version 流程-版本
     String versionString = i18nManager.getMessage(Messages.PROCESS_VERSION, processDefinition.getVersion());
     Label versionLabel = new Label(versionString);
     versionLabel.addStyleName(ExplorerLayout.STYLE_PROCESS_HEADER_VERSION);
     propertiesLayout.addComponent(versionLabel);
     
-    // Add deploy time
+    //TODO Add deploy time 流程-部署时间
     PrettyTimeLabel deployTimeLabel = new PrettyTimeLabel(i18nManager.getMessage(Messages.PROCESS_DEPLOY_TIME),
       deployment.getDeploymentTime(), null, true);
     deployTimeLabel.addStyleName(ExplorerLayout.STYLE_PROCESS_HEADER_DEPLOY_TIME);
