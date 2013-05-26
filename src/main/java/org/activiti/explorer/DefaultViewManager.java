@@ -200,7 +200,7 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new ArchivedPage(taskId), ViewManager.MAIN_NAVIGATION_TASK, TaskMenuBar.ENTRY_ARCHIVED);
   }
   
-  // Process
+  // TODO Process 流程定义(入口)
   
   public void showDeployedProcessDefinitionPage() {
     switchView(new ProcessDefinitionPage(), ViewManager.MAIN_NAVIGATION_PROCESS, ProcessMenuBar.DEPLOYED_PROCESS_DEFINITIONS);
@@ -234,7 +234,7 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new SimpleTableEditor(modelId, workflowDefinition), ViewManager.MAIN_NAVIGATION_PROCESS, null);
   }
   
-  // Reporting
+  // TODO Reporting 报表(入口)
   
   public void showRunReportPage() {
     switchView(new RunReportsPage(), ViewManager.MAIN_NAVIGATION_REPORT, ReportsMenuBar.ENTRY_RUN_REPORTS);
@@ -254,7 +254,7 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new SavedReportsPage(reportId), ViewManager.MAIN_NAVIGATION_REPORT, ReportsMenuBar.ENTRY_SAVED_REPORTS);
   }
   
-  // Management
+  // TODO Management 管理(入口)
   
   public void showDatabasePage() {
     switchView(new DatabasePage(), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_DATABASE);
@@ -328,13 +328,13 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new AdministrationPage(managementId), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_ADMIN);
   }
   
-  // Profile
+  // TODO Profile 个人信息(入口)
   
   public void showProfilePopup(String userId) {
     showPopupWindow(new ProfilePopupWindow(userId));
   }
   
-  // Helper
+  // TODO Helper 帮助(入口)
   
   protected void switchView(AbstractPage page, String mainMenuActive, String subMenuActive) {
     currentPage = page;

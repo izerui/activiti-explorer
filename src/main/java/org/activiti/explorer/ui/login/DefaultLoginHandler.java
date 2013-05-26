@@ -35,6 +35,7 @@ public class DefaultLoginHandler implements LoginHandler {
 
   private transient IdentityService identityService;
 
+  //TODO 登录成功 验证用户, 赋予相关角色
   public LoggedInUserImpl authenticate(String userName, String password) {
     LoggedInUserImpl loggedInUser = null;
     if (identityService.checkPassword(userName, password)) {
@@ -48,7 +49,7 @@ public class DefaultLoginHandler implements LoginHandler {
           if (Constants.SECURITY_ROLE_USER.equals(group.getId())) {
             loggedInUser.setUser(true);
           }
-          if (Constants.SECURITY_ROLE_ADMIN.equals(group.getId())) {
+          if (Constants.SECURITY_ROLE_ADMIN.equals(group.getName())) {// 原来group.getId() 修改为验证用户的组名为 admin 即为管理员
             loggedInUser.setAdmin(true);
           }
         } else {
