@@ -74,6 +74,7 @@ public class DeploymentUploadReceiver implements Receiver, FinishedListener {
     }
   }
 
+  //部署上传的发布包
   protected void deployUploadedFile() {
     DeploymentBuilder deploymentBuilder = repositoryService.createDeployment().name(fileName);
     DeploymentFilter deploymentFilter = ExplorerApp.get().getComponentFactory(DeploymentFilterFactory.class).create();

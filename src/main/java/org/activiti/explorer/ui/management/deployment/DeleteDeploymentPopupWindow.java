@@ -69,6 +69,7 @@ public class DeleteDeploymentPopupWindow extends PopupWindow {
     setCaption(i18nManager.getMessage(Messages.DEPLOYMENT_DELETE_POPUP_CAPTION, deployment.getName()));
   }
   
+  //TODO 删除部署提示panel
   protected void addDeleteWarning() {
     List<ProcessDefinition> processDefinitions = 
       repositoryService.createProcessDefinitionQuery().deploymentId(deployment.getId()).list();
