@@ -74,7 +74,7 @@ public class TaskMenuBar extends ToolBar {
 
     // TODO: the counts should be done later by eg a Refresher component
 
-    // Inbox
+    //TODO task Inbox 代办
     long inboxCount = new InboxListQuery().size(); 
     ToolbarEntry inboxEntry = addToolbarEntry(ENTRY_INBOX, i18nManager.getMessage(Messages.TASK_MENU_INBOX), new ToolbarCommand() {
       public void toolBarItemSelected() {
@@ -83,7 +83,7 @@ public class TaskMenuBar extends ToolBar {
     });
     inboxEntry.setCount(inboxCount);
     
-    // Tasks
+    //TODO Tasks 我的任务
     LoggedInUser user = ExplorerApp.get().getLoggedInUser();
     long tasksCount = new TasksListQuery().size(); 
     ToolbarEntry tasksEntry = addToolbarEntry(ENTRY_TASKS, i18nManager.getMessage(Messages.TASK_MENU_TASKS), new ToolbarCommand() {
@@ -93,7 +93,7 @@ public class TaskMenuBar extends ToolBar {
     });
     tasksEntry.setCount(tasksCount);
     
-    // Queued
+    //TODO task Queued 队列, 组任务
     List<Group> groups = identityService.createGroupQuery().groupMember(user.getId()).list();
     ToolbarPopupEntry queuedItem = addPopupEntry(ENTRY_QUEUED, (i18nManager.getMessage(Messages.TASK_MENU_QUEUED)));
     long queuedCount = 0;
@@ -112,7 +112,7 @@ public class TaskMenuBar extends ToolBar {
     }
     queuedItem.setCount(queuedCount);
     
-    // Involved
+    //TODO task Involved 受邀
     long involvedCount = new InvolvedListQuery().size(); 
     ToolbarEntry involvedEntry = addToolbarEntry(ENTRY_INVOLVED, i18nManager.getMessage(Messages.TASK_MENU_INVOLVED), new ToolbarCommand() {
       public void toolBarItemSelected() {
@@ -121,7 +121,7 @@ public class TaskMenuBar extends ToolBar {
     });
     involvedEntry.setCount(involvedCount);
     
-    // Archived
+    //TODO task Archived 已归档
     long archivedCount = new ArchivedListQuery().size(); 
     ToolbarEntry archivedEntry = addToolbarEntry(ENTRY_ARCHIVED, i18nManager.getMessage(Messages.TASK_MENU_ARCHIVED), new ToolbarCommand() {
       public void toolBarItemSelected() {

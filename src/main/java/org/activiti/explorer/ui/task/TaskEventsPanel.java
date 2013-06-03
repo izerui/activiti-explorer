@@ -159,19 +159,19 @@ public class TaskEventsPanel extends Panel {
     layout.setWidth("100%");
     eventGrid.addComponent(layout);
     
-    // Actual text
+    // TODO 任务相关事件 主体 Actual text
     Label text = taskEventTextResolver.resolveText(taskEvent);
     text.setWidth("100%");
     layout.addComponent(text);
     
-    // Time
+    // TODO 任务相关事件 时间 Time
     Label time = new Label(new HumanTime(i18nManager).format(taskEvent.getTime()));
     time.setSizeUndefined();
     time.addStyleName(ExplorerLayout.STYLE_TASK_EVENT_TIME);
     layout.addComponent(time);
     
   }
-  
+  //TODO 发送消息
   protected void addInputField() {
     HorizontalLayout layout = new HorizontalLayout();
     layout.setSpacing(true);

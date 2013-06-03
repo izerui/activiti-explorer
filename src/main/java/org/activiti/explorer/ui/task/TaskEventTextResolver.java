@@ -42,6 +42,7 @@ public class TaskEventTextResolver implements Serializable {
     this.i18nManager = ExplorerApp.get().getI18nManager();
   }
   
+  //TODO 生成消息串
   public Label resolveText(Event event) {
     UserCache userCache = ExplorerApp.get().getUserCache();
     User user = userCache.findUser(event.getUserId());
