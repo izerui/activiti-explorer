@@ -63,6 +63,7 @@ public class TaskInvolvedPeopleComponent extends CustomComponent {
   protected Button addPeopleButton;
   protected GridLayout peopleGrid;
   
+  //TODO 参与人模块
   public TaskInvolvedPeopleComponent(Task task, TaskDetailPanel taskDetailPanel) {
     this.task = task;
     this.taskDetailPanel = taskDetailPanel;
@@ -104,6 +105,7 @@ public class TaskInvolvedPeopleComponent extends CustomComponent {
     headerLayout.setExpandRatio(title, 1.0f);
   }
 
+  //TODO 添加参与人按钮
   protected void initAddPeopleButton(HorizontalLayout headerLayout) {
     addPeopleButton = new Button();
     addPeopleButton.addStyleName(ExplorerLayout.STYLE_ADD);
@@ -144,13 +146,14 @@ public class TaskInvolvedPeopleComponent extends CustomComponent {
     
     populatePeopleGrid();
   }
-  
+  //TODO 用户tilelist
   protected void populatePeopleGrid() {
     initOwner();
     initAssignee();
     initInvolvedPeople();
   }
   
+  //TODO 加载owner
   protected void initOwner() {
     UserDetailsComponent ownerDetails = createOwnerComponent();
     peopleGrid.addComponent(ownerDetails);
@@ -164,7 +167,7 @@ public class TaskInvolvedPeopleComponent extends CustomComponent {
             i18nManager.getMessage(Messages.TASK_OWNER_TRANSFER),
             new ChangeOwnershipListener(task, taskDetailPanel));
   }
-  
+  //TODO 加载 审批者
   protected void initAssignee() {
     UserDetailsComponent assigneeDetails = createAssigneeComponent();
     peopleGrid.addComponent(assigneeDetails);
@@ -179,6 +182,7 @@ public class TaskInvolvedPeopleComponent extends CustomComponent {
             new ReassignAssigneeListener(task, taskDetailPanel));
   }
   
+  //TODO 加载参与者
   protected void initInvolvedPeople() {
     List<IdentityLink> identityLinks = taskService.getIdentityLinksForTask(task.getId());
     for (final IdentityLink identityLink : identityLinks) { 

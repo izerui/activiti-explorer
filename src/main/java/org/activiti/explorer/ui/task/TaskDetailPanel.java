@@ -166,7 +166,7 @@ public class TaskDetailPanel extends DetailPanel {
     initClaimButton(layout);
     initDescription(layout);
   }
-
+//TODO 加载签收 button
   protected void initClaimButton(HorizontalLayout layout) {
     if(!isCurrentUserAssignee() && canUserClaimTask()) {
       claimButton = new Button(i18nManager.getMessage(Messages.TASK_CLAIM));
@@ -232,6 +232,7 @@ public class TaskDetailPanel extends DetailPanel {
     });
   }
 
+  //TODO 任务属于 流程
   protected void initProcessLink() {
     if(task.getProcessInstanceId() != null) {
       ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
@@ -243,6 +244,7 @@ public class TaskDetailPanel extends DetailPanel {
       showProcessInstanceButton.addStyleName(Reindeer.BUTTON_LINK);
       showProcessInstanceButton.addListener(new ClickListener() {
         public void buttonClick(ClickEvent event) {
+        	//显示流程实例列表页面
           viewManager.showMyProcessInstancesPage(task.getProcessInstanceId());
         }
       });
@@ -260,6 +262,7 @@ public class TaskDetailPanel extends DetailPanel {
     }
   }
   
+  //TODO 父流程
   protected void initParentTaskLink() {
     if (task.getParentTaskId() != null) {
       final Task parentTask = taskService.createTaskQuery()
