@@ -107,14 +107,21 @@ public class TaskDetailPanel extends DetailPanel {
     this.centralLayout = new VerticalLayout();
     centralLayout.setMargin(true);
     setDetailContainer(centralLayout);
-    
+    //头信息,任务头
     initHeader();
+    //描述和签收按钮
     initDescriptionAndClaimButton();
+    //流程链接
     initProcessLink();
+    //父任务
     initParentTaskLink();
+    //人员列表
     initPeopleDetails();
+    //子任务
     initSubTasks();
+    //附件
     initRelatedContent();
+    //form表单
     initTaskForm();
     
   }
