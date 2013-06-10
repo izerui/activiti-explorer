@@ -77,6 +77,7 @@ public class FormPropertiesComponent extends VerticalLayout {
   
 
   /**
+   * 返回表单信息的key - value 对应
    * Returns all values filled in in the writable fields on the form.
    * 
    * @throws InvalidValueException when a validation error occurs.

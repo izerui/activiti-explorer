@@ -305,6 +305,7 @@ public class TaskDetailPanel extends DetailPanel {
     centralLayout.addComponent(relatedContent);
   }
   
+  //TODO 初始化form入口
   protected void initTaskForm() {
     // Check if task requires a form
     TaskFormData formData = formService.getTaskFormData(task.getId());
@@ -333,7 +334,7 @@ public class TaskDetailPanel extends DetailPanel {
           taskForm.clear();
         }
       });
-      // Only if current user is task's assignee
+      // Only if current user is task's assignee 只有当前用户是任务的受让人才可编辑
       taskForm.setEnabled(isCurrentUserAssignee());
       
       // Add component to page
