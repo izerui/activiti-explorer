@@ -45,6 +45,7 @@ public class MyProcessInstancesListQuery extends AbstractLazyLoadingQuery {
     cachedProcessDefinitions = new HashMap<String, ProcessDefinition>();
   }
   
+  //TODO 我的流程
   public List<Item> loadItems(int start, int count) {
     List<HistoricProcessInstance> processInstances = historyService
       .createHistoricProcessInstanceQuery()
@@ -59,6 +60,7 @@ public class MyProcessInstancesListQuery extends AbstractLazyLoadingQuery {
     return items;
   }
   
+  //TODO 列出用户启动的单个流程
   public Item loadSingleResult(String id) {
     HistoricProcessInstance processInstance = historyService.createHistoricProcessInstanceQuery()
       .startedBy(ExplorerApp.get().getLoggedInUser().getId())
@@ -70,6 +72,7 @@ public class MyProcessInstancesListQuery extends AbstractLazyLoadingQuery {
     return null;
   }
   
+  //TODO 封装流程信息到展示Map
   protected ProcessInstanceItem createItem(HistoricProcessInstance processInstance) {
     ProcessInstanceItem item = new ProcessInstanceItem();
     item.addItemProperty("id", new ObjectProperty<String>(processInstance.getId(), String.class));
@@ -81,6 +84,7 @@ public class MyProcessInstancesListQuery extends AbstractLazyLoadingQuery {
     return item;
   }
   
+  //流程展示名称. 如果name为空, 就显示key
   protected String getProcessDisplayName(ProcessDefinition processDefinition) {
     if(processDefinition.getName() != null) {
       return processDefinition.getName();
@@ -89,6 +93,7 @@ public class MyProcessInstancesListQuery extends AbstractLazyLoadingQuery {
     }
   }
 
+  //TODO 根据流程ID获取流程信息
   protected ProcessDefinition getProcessDefinition(String id) {
     ProcessDefinition processDefinition = cachedProcessDefinitions.get(id);
     if(processDefinition == null) {
