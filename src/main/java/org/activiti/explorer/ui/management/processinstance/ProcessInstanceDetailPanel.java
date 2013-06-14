@@ -155,6 +155,7 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
     panelLayout.addComponent(header);
   }
   
+  //我的流程展示
   protected void addProcessImage() {
     ProcessDefinitionEntity processDefinitionEntity = (ProcessDefinitionEntity) ((RepositoryServiceImpl) repositoryService)
       .getDeployedProcessDefinition(processDefinition.getId());
@@ -270,7 +271,7 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
     taskTable.addStyleName(ExplorerLayout.STYLE_PROCESS_INSTANCE_TASK_LIST);
     taskTable.setWidth(100, UNITS_PERCENTAGE);
     
-    // Fetch all tasks
+    // Fetch all tasks 取得所有任务
     List<HistoricTaskInstance> tasks = historyService.createHistoricTaskInstanceQuery()
       .processInstanceId(processInstance.getId())
       .orderByHistoricTaskInstanceEndTime().desc()
@@ -310,7 +311,7 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
       panelLayout.addComponent(noTaskLabel);
     }
   }
-  
+  //添加任务列表
   protected void addTaskItem(HistoricTaskInstance task, Table taskTable) {
     Item item = taskTable.addItem(task.getId());
     
@@ -343,6 +344,7 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
     return new UserProfileLink(identityService, true, assignee);
   }
 
+  //添加变量信息
   protected void addVariables() {
     Label header = new Label(i18nManager.getMessage(Messages.PROCESS_INSTANCE_HEADER_VARIABLES));
     header.addStyleName(ExplorerLayout.STYLE_H3);

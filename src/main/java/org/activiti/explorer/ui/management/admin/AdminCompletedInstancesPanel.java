@@ -76,6 +76,7 @@ public class AdminCompletedInstancesPanel extends DetailPanel {
   protected List<HistoricProcessInstance> instanceList;
   protected ManagementProcessDefinition selectedManagementDefinition;
   
+  //TODO 完成的流程实例类
   public AdminCompletedInstancesPanel() {
     this.historyService = ProcessEngines.getDefaultProcessEngine().getHistoryService();
     this.repositoryService = ProcessEngines.getDefaultProcessEngine().getRepositoryService();
@@ -357,6 +358,7 @@ public class AdminCompletedInstancesPanel extends DetailPanel {
     taskTable.setWidth(100, UNITS_PERCENTAGE);
     taskTable.setHeight(250, UNITS_PIXELS);
     
+    //TODO 获取指定流程实例的历史任务
     // Fetch all tasks
     List<HistoricTaskInstance> tasks = historyService.createHistoricTaskInstanceQuery()
       .processInstanceId(processInstance.getId())
@@ -457,6 +459,7 @@ public class AdminCompletedInstancesPanel extends DetailPanel {
   		mainPanel.removeComponent(variablesTable);
   	}
     
+  	//TODO 获取指定流程实例的历史变量
     // variable sorting is done in-memory (which is ok, since normally there aren't that many vars)
     List<HistoricDetail> variables = historyService.createHistoricDetailQuery()
     		.processInstanceId(processInstance.getId()).orderByTime().desc().list(); 

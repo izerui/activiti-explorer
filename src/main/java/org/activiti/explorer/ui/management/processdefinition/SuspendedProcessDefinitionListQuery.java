@@ -39,6 +39,7 @@ public class SuspendedProcessDefinitionListQuery extends AbstractLazyLoadingQuer
     return (int) repositoryService.createProcessDefinitionQuery().suspended().count();
   }
 
+  //挂起的流程列表
   public List<Item> loadItems(int start, int count) {
     List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefinitionQuery()
             .suspended()

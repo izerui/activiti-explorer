@@ -77,6 +77,7 @@ public class AdminRunningInstancesPanel extends DetailPanel {
   protected List<HistoricProcessInstance> instanceList;
   protected ManagementProcessDefinition selectedManagementDefinition;
   
+  //TODO 运行中的流程实例类
   public AdminRunningInstancesPanel() {
   	this.runtimeService = ProcessEngines.getDefaultProcessEngine().getRuntimeService();
     this.historyService = ProcessEngines.getDefaultProcessEngine().getHistoryService();
