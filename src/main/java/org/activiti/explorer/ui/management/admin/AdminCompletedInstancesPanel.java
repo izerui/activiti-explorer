@@ -137,6 +137,7 @@ public class AdminCompletedInstancesPanel extends DetailPanel {
     membersHeader.addComponent(usersHeader);
   }
   
+  //TODO 加载已经完成流程的 流程定义
   protected void initDefinitionsTable() {
     if(instanceList == null || instanceList.size() == 0) {
     	noMembersTable = new Label(i18nManager.getMessage(Messages.ADMIN_COMPLETED_NONE_FOUND));
