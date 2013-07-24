@@ -75,7 +75,7 @@ public class ProcessDefinitionInfoComponent extends VerticalLayout {
   protected HorizontalLayout timeDetails;
   protected VerticalLayout processImageContainer;
   
-  //TODO 流程图
+  
   public ProcessDefinitionInfoComponent(ProcessDefinition processDefinition, Deployment deployment) {
     super();
     this.repositoryService = ProcessEngines.getDefaultProcessEngine().getRepositoryService();
@@ -91,7 +91,6 @@ public class ProcessDefinitionInfoComponent extends VerticalLayout {
     initImage();
   }
   
-  //TODO 加载悬停状态提示组件
   protected void initSuspensionStateInformation() {
     List<Job> jobs = managementService.createJobQuery()
             .processDefinitionId(processDefinition.getId()).orderByJobDuedate().asc().list();
@@ -130,7 +129,7 @@ public class ProcessDefinitionInfoComponent extends VerticalLayout {
     
     addEmptySpace(this);
   }
-  //TODO 加载流程图
+  
   protected void initImage() {
     processImageContainer = new VerticalLayout();
     
@@ -169,8 +168,9 @@ public class ProcessDefinitionInfoComponent extends VerticalLayout {
           imagePanel.addStyleName(Reindeer.PANEL_LIGHT);
           imagePanel.setWidth(100, UNITS_PERCENTAGE);
           imagePanel.setHeight(100, UNITS_PERCENTAGE);
-        
-          URL url = new URL(ExplorerApp.get().getURL().toString().replace("/ui", "") + 
+
+	      URL explorerURL = ExplorerApp.get().getURL();
+	      URL url = new URL(explorerURL.getProtocol(), explorerURL.getHost(), explorerURL.getPort(), explorerURL.getPath().replace("/ui", "") +
               "diagram-viewer/index.html?processDefinitionId=" + processDefinition.getId());
           Embedded browserPanel = new Embedded("", new ExternalResource(url));
           browserPanel.setType(Embedded.TYPE_BROWSER);

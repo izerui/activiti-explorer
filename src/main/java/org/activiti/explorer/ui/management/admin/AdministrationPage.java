@@ -81,9 +81,9 @@ public class AdministrationPage extends ManagementPage {
         if(item != null) {
         	
         	if("0".equals(event.getProperty().getValue().toString())) {
-        		setDetailComponent(new AdminRunningInstancesPanel());//TODO tab 运行中的流程实例列表
+        		setDetailComponent(new AdminRunningInstancesPanel());
         	} else if("1".equals(event.getProperty().getValue().toString())) {
-        		setDetailComponent(new AdminCompletedInstancesPanel());//TODO tab 完成流程实例列表
+        		setDetailComponent(new AdminCompletedInstancesPanel());
         	} else if("2".equals(event.getProperty().getValue().toString())) {
         		setDetailComponent(new AdminDatabaseSettingsPanel());
         	}

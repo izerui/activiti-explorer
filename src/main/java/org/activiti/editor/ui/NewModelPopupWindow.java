@@ -41,6 +41,8 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
+import java.net.URL;
+
 
 /**
  * @author Tijs Rademakers
@@ -113,7 +115,7 @@ public class NewModelPopupWindow extends PopupWindow implements ModelDataJsonCon
 
   protected void addButtons() {
     
-    // 添加模型
+    // Create
     Button createButton = new Button(i18nManager.getMessage(Messages.PROCESS_NEW_POPUP_CREATE_BUTTON));
     createButton.setWidth("200px");
     createButton.addListener(new ClickListener() {
@@ -152,14 +154,15 @@ public class NewModelPopupWindow extends PopupWindow implements ModelDataJsonCon
             modelData.setName((String) nameTextField.getValue());
             
             repositoryService.saveModel(modelData);
-            //如果id为空. 即为增加  否则为删除后更新
             repositoryService.addModelEditorSource(modelData.getId(), editorNode.toString().getBytes("utf-8"));
             
             close();
             
             ExplorerApp.get().getViewManager().showEditorProcessDefinitionPage(modelData.getId());
-            ExplorerApp.get().getMainWindow().open(new ExternalResource(
-                ExplorerApp.get().getURL().toString().replace("/ui", "") + "service/editor?id=" + modelData.getId()));
+	          URL explorerURL = ExplorerApp.get().getURL();
+	          URL url = new URL(explorerURL.getProtocol(), explorerURL.getHost(), explorerURL.getPort(),
+					          explorerURL.getPath().replace("/ui", "") + "service/editor?id=" + modelData.getId());
+            ExplorerApp.get().getMainWindow().open(new ExternalResource(url));
             
           } catch(Exception e) {
             notificationManager.showErrorNotification("error", e);

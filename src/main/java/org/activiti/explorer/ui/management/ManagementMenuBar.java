@@ -47,11 +47,11 @@ public class ManagementMenuBar extends ToolBar {
     
     initToolbarEntries();
   }
-  //TODO title menu初始化
+  
   protected void initToolbarEntries() {
     addDatabaseToolbarEntry();
     addDeploymentsToolbarEntry();
-    addActiveProcessDefinitionsEntry();//流程定义
+    addActiveProcessDefinitionsEntry();
     addSuspendedProcessDefinitionsEntry();
     addJobsToolbarEntry();
     addUsersToolbarEntry();

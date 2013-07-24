@@ -13,10 +13,23 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.framework.version>3.1.2.RELEASE</spring.framework.version>
-		<activiti.version>5.12.1</activiti.version>
+		<activiti.version>5.13</activiti.version>
 		<batik.version>1.7</batik.version>
 	</properties>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.26</version>
+				<configuration>
+					<webAppSourceDirectory>WebContent</webAppSourceDirectory>
+					<scanIntervalSeconds>0</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 
 

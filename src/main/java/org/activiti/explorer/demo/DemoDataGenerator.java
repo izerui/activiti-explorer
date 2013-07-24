@@ -57,18 +57,10 @@ public class DemoDataGenerator implements ModelDataJsonConstants {
   protected boolean createDemoProcessDefinitions;
   protected boolean createDemoModels;
   protected boolean generateReportData;
-  protected boolean createAllDemoData;
   
-  public void setCreateAllDemoData(boolean createAllDemoData) {
-	this.createAllDemoData = createAllDemoData;
-}
-
-public void init() {
+  public void init() {
     this.identityService = processEngine.getIdentityService();
     this.repositoryService = processEngine.getRepositoryService();
-    if(!createAllDemoData){
-    	return;
-    }
     
     if (createDemoUsersAndGroups) {
       LOGGER.info("Initializing demo groups");

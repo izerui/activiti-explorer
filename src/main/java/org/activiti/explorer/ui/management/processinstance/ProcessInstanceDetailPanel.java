@@ -155,7 +155,6 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
     panelLayout.addComponent(header);
   }
   
-  //我的流程展示
   protected void addProcessImage() {
     ProcessDefinitionEntity processDefinitionEntity = (ProcessDefinitionEntity) ((RepositoryServiceImpl) repositoryService)
       .getDeployedProcessDefinition(processDefinition.getId());
@@ -194,8 +193,8 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
             imagePanel.addStyleName(Reindeer.PANEL_LIGHT);
             imagePanel.setWidth(100, UNITS_PERCENTAGE);
             imagePanel.setHeight(100, UNITS_PERCENTAGE);
-          
-            URL url = new URL(ExplorerApp.get().getURL().toString().replace("/ui", "") + 
+            URL explorerURL = ExplorerApp.get().getURL();
+            URL url = new URL(explorerURL.getProtocol(), explorerURL.getHost(), explorerURL.getPort(), explorerURL.getPath().replace("/ui", "") +
                 "diagram-viewer/index.html?processDefinitionId=" + processDefinition.getId() + "&processInstanceId=" + processInstance.getId());
             Embedded browserPanel = new Embedded("", new ExternalResource(url));
             browserPanel.setType(Embedded.TYPE_BROWSER);
@@ -271,7 +270,7 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
     taskTable.addStyleName(ExplorerLayout.STYLE_PROCESS_INSTANCE_TASK_LIST);
     taskTable.setWidth(100, UNITS_PERCENTAGE);
     
-    // Fetch all tasks 取得所有任务
+    // Fetch all tasks
     List<HistoricTaskInstance> tasks = historyService.createHistoricTaskInstanceQuery()
       .processInstanceId(processInstance.getId())
       .orderByHistoricTaskInstanceEndTime().desc()
@@ -311,7 +310,7 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
       panelLayout.addComponent(noTaskLabel);
     }
   }
-  //添加任务列表
+  
   protected void addTaskItem(HistoricTaskInstance task, Table taskTable) {
     Item item = taskTable.addItem(task.getId());
     
@@ -344,7 +343,6 @@ public class ProcessInstanceDetailPanel extends DetailPanel {
     return new UserProfileLink(identityService, true, assignee);
   }
 
-  //添加变量信息
   protected void addVariables() {
     Label header = new Label(i18nManager.getMessage(Messages.PROCESS_INSTANCE_HEADER_VARIABLES));
     header.addStyleName(ExplorerLayout.STYLE_H3);

@@ -200,7 +200,7 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new ArchivedPage(taskId), ViewManager.MAIN_NAVIGATION_TASK, TaskMenuBar.ENTRY_ARCHIVED);
   }
   
-  // TODO Process 流程定义(入口)
+  // Process
   
   public void showDeployedProcessDefinitionPage() {
     switchView(new ProcessDefinitionPage(), ViewManager.MAIN_NAVIGATION_PROCESS, ProcessMenuBar.DEPLOYED_PROCESS_DEFINITIONS);
@@ -234,7 +234,7 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new SimpleTableEditor(modelId, workflowDefinition), ViewManager.MAIN_NAVIGATION_PROCESS, null);
   }
   
-  // TODO Reporting 报表(入口)
+  // Reporting
   
   public void showRunReportPage() {
     switchView(new RunReportsPage(), ViewManager.MAIN_NAVIGATION_REPORT, ReportsMenuBar.ENTRY_RUN_REPORTS);
@@ -254,25 +254,24 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new SavedReportsPage(reportId), ViewManager.MAIN_NAVIGATION_REPORT, ReportsMenuBar.ENTRY_SAVED_REPORTS);
   }
   
-  // TODO Management 管理(入口)
+  // Management
   
   public void showDatabasePage() {
     switchView(new DatabasePage(), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_DATABASE);
   }
   
-  //TODO 显示数据库维护
   public void showDatabasePage(String tableName) {
     switchView(new DatabasePage(tableName), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_DATABASE);
   }
-  //部署列表页面
+  
   public void showDeploymentPage() {
     switchView(new DeploymentPage(), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_DEPLOYMENTS);
   }
-  //部署信息页面
+  
   public void showDeploymentPage(String deploymentId) {
     switchView(new DeploymentPage(deploymentId), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_DEPLOYMENTS);
   }
-  //激活流程
+  
   public void showActiveProcessDefinitionsPage() {
     switchView(new ActiveProcessDefinitionPage(), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_ACTIVE_PROCESS_DEFINITIONS);
   }
@@ -284,7 +283,7 @@ public class DefaultViewManager implements ViewManager, Serializable {
   public void showSuspendedProcessDefinitionsPage() {
     switchView(new SuspendedProcessDefinitionPage(), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_SUSPENDED_PROCESS_DEFINITIONS);
   }
-  //挂起流程
+  
   public void showSuspendedProcessDefinitionsPage(String processDefinitionId) {
     switchView(new SuspendedProcessDefinitionPage(processDefinitionId), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_SUSPENDED_PROCESS_DEFINITIONS);
   }
@@ -329,13 +328,13 @@ public class DefaultViewManager implements ViewManager, Serializable {
     switchView(new AdministrationPage(managementId), ViewManager.MAIN_NAVIGATION_MANAGE, ManagementMenuBar.ENTRY_ADMIN);
   }
   
-  // TODO Profile 个人信息(入口)
+  // Profile
   
   public void showProfilePopup(String userId) {
     showPopupWindow(new ProfilePopupWindow(userId));
   }
   
-  // TODO Helper 帮助(入口)
+  // Helper
   
   protected void switchView(AbstractPage page, String mainMenuActive, String subMenuActive) {
     currentPage = page;

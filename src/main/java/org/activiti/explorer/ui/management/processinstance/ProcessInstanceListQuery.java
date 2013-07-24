@@ -66,7 +66,6 @@ public class ProcessInstanceListQuery extends AbstractLazyLoadingQuery {
     throw new UnsupportedOperationException();
   }
 
-  //活动的流程实例
   protected ProcessInstanceQuery constructQuery() {
     return runtimeService.createProcessInstanceQuery()
       .orderByProcessInstanceId().asc();

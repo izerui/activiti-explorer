@@ -27,13 +27,11 @@ import com.vaadin.ui.Button;
 
 
 /**
- *
  * Panel showing process definition detail.
  * 
  * @author Frederik Heremans
  * @author Joram Barrez
  */
-//TODO 面板显示流程定义的详细信息。
 public class ProcessDefinitionDetailPanel extends AbstractProcessDefinitionDetailPanel {
   
   private static final long serialVersionUID = 1L;
@@ -49,10 +47,9 @@ public class ProcessDefinitionDetailPanel extends AbstractProcessDefinitionDetai
   protected void initActions(AbstractPage parentPage) {
     ProcessDefinitionPage processDefinitionPage = (ProcessDefinitionPage) parentPage;
 
-    //TODO 生成启动流程按钮
     startProcessInstanceButton = new Button(i18nManager.getMessage(Messages.PROCESS_START));
     startProcessInstanceButton.addListener(new StartProcessInstanceClickListener(processDefinition, processDefinitionPage));
-    //TODO 生成转换为可编辑模型按钮
+    
     editProcessDefinitionButton = new Button(i18nManager.getMessage(Messages.PROCESS_CONVERT));
     editProcessDefinitionButton.addListener(new ConvertProcessDefinitionToModelClickListener(processDefinition));
     
@@ -66,7 +63,6 @@ public class ProcessDefinitionDetailPanel extends AbstractProcessDefinitionDetai
     processDefinitionPage.getToolBar().addButton(editProcessDefinitionButton);
   }
   
-  //TODO 显示启动流程页. 判断是否需要显示动态form表单
   public void showProcessStartForm(StartFormData startFormData) {
     if(processDefinitionStartForm == null) {
       processDefinitionStartForm = new FormPropertiesForm();
@@ -98,7 +94,6 @@ public class ProcessDefinitionDetailPanel extends AbstractProcessDefinitionDetai
   
   @Override
   public void initProcessDefinitionInfo() {
-	  //TODO 生成流程图  ------画图
     super.initProcessDefinitionInfo();
     
     if (startProcessInstanceButton != null) {

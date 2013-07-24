@@ -102,7 +102,7 @@ public class TaskRelatedContentComponent extends VerticalLayout implements Relat
     actionsContainer.setComponentAlignment(processTitle, Alignment.MIDDLE_LEFT);
     actionsContainer.setExpandRatio(processTitle, 1.0f);
 
-    // TODO 添加附件 Add content button
+    // Add content button
     Button addRelatedContentButton = new Button();
     addRelatedContentButton.addStyleName(ExplorerLayout.STYLE_ADD);
     addRelatedContentButton.addListener(new com.vaadin.ui.Button.ClickListener() {
@@ -196,7 +196,6 @@ public class TaskRelatedContentComponent extends VerticalLayout implements Relat
     }
   }
 
-  //附件列表
   protected void addAttachmentsToTable(List<Attachment> attachments) {
     for (Attachment attachment : attachments) {
       AttachmentRenderer renderer = attachmentRendererManager.getRenderer(attachment);

@@ -61,7 +61,7 @@ public class ArchivedListQuery extends AbstractLazyLoadingQuery {
   public void setSorting(Object[] propertyIds, boolean[] ascending) {
     throw new UnsupportedOperationException();
   }
-  // TODO 获取已归档 task
+  
   protected HistoricTaskInstanceQuery createQuery() {
     return historyService.createHistoricTaskInstanceQuery().taskOwner(userId).finished();
   }

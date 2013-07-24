@@ -86,7 +86,6 @@ public class ProcessDefinitionPage extends AbstractTablePage {
    return new ProcessMenuBar();
   }
   
-  //TODO 已部署流程定义 列表
   @Override
   protected Table createList() {
     final Table processDefinitionTable = new Table();
@@ -108,7 +107,7 @@ public class ProcessDefinitionPage extends AbstractTablePage {
     // Listener to change right panel when clicked on a task
     processDefinitionTable.addListener(new Property.ValueChangeListener() {
       private static final long serialVersionUID = 1L;
-      //TODO 流程定义列表项 单击事件
+
       public void valueChange(ValueChangeEvent event) {
         Item item = processDefinitionTable.getItem(event.getProperty().getValue());
         String processDefinitionId = (String) item.getItemProperty("id").getValue();
@@ -125,9 +124,8 @@ public class ProcessDefinitionPage extends AbstractTablePage {
     
     return processDefinitionTable;
   }
-  //TODO 流程图显示
+
   protected void showProcessDefinitionDetail(String processDefinitionId) {
-	  //TODO 生成右侧详细信息. 包含图. 包含 启动 编辑按钮
     detailPanel = new ProcessDefinitionDetailPanel(processDefinitionId, this);
     setDetailComponent(detailPanel);
     changeUrl(processDefinitionId);

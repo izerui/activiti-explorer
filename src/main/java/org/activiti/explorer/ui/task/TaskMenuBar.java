@@ -13,8 +13,6 @@
 
 package org.activiti.explorer.ui.task;
 
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.List;
 
 import org.activiti.engine.IdentityService;
@@ -74,7 +72,7 @@ public class TaskMenuBar extends ToolBar {
 
     // TODO: the counts should be done later by eg a Refresher component
 
-    //TODO task Inbox 代办
+    // Inbox
     long inboxCount = new InboxListQuery().size(); 
     ToolbarEntry inboxEntry = addToolbarEntry(ENTRY_INBOX, i18nManager.getMessage(Messages.TASK_MENU_INBOX), new ToolbarCommand() {
       public void toolBarItemSelected() {
@@ -83,7 +81,7 @@ public class TaskMenuBar extends ToolBar {
     });
     inboxEntry.setCount(inboxCount);
     
-    //TODO Tasks 我的任务
+    // Tasks
     LoggedInUser user = ExplorerApp.get().getLoggedInUser();
     long tasksCount = new TasksListQuery().size(); 
     ToolbarEntry tasksEntry = addToolbarEntry(ENTRY_TASKS, i18nManager.getMessage(Messages.TASK_MENU_TASKS), new ToolbarCommand() {
@@ -93,26 +91,25 @@ public class TaskMenuBar extends ToolBar {
     });
     tasksEntry.setCount(tasksCount);
     
-    //TODO task Queued 队列, 组任务
-    List<Group> groups = identityService.createGroupQuery().groupMember(user.getId()).list();
+    // Queued
+    List<Group> groups = user.getGroups();
     ToolbarPopupEntry queuedItem = addPopupEntry(ENTRY_QUEUED, (i18nManager.getMessage(Messages.TASK_MENU_QUEUED)));
     long queuedCount = 0;
     for (final Group group : groups) {
-      if (group.getType().equals("assignment")) {
-        long groupCount = new QueuedListQuery(group.getId()).size(); 
-        
-        queuedItem.addMenuItem(group.getName() + " (" + groupCount + ")", new ToolbarCommand() {
-          public void toolBarItemSelected() {
-            viewManager.showQueuedPage(group.getId());
-          }
-        });
-        
-        queuedCount += groupCount;
-      }
+      long groupCount = new QueuedListQuery(group.getId()).size();
+
+      queuedItem.addMenuItem(group.getName() + " (" + groupCount + ")", new ToolbarCommand() {
+
+        public void toolBarItemSelected() {
+          viewManager.showQueuedPage(group.getId());
+        }
+      });
+
+      queuedCount += groupCount;
     }
     queuedItem.setCount(queuedCount);
     
-    //TODO task Involved 受邀
+    // Involved
     long involvedCount = new InvolvedListQuery().size(); 
     ToolbarEntry involvedEntry = addToolbarEntry(ENTRY_INVOLVED, i18nManager.getMessage(Messages.TASK_MENU_INVOLVED), new ToolbarCommand() {
       public void toolBarItemSelected() {
@@ -121,7 +118,7 @@ public class TaskMenuBar extends ToolBar {
     });
     involvedEntry.setCount(involvedCount);
     
-    //TODO task Archived 已归档
+    // Archived
     long archivedCount = new ArchivedListQuery().size(); 
     ToolbarEntry archivedEntry = addToolbarEntry(ENTRY_ARCHIVED, i18nManager.getMessage(Messages.TASK_MENU_ARCHIVED), new ToolbarCommand() {
       public void toolBarItemSelected() {

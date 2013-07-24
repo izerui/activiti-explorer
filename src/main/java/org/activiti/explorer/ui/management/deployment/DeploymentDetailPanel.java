@@ -79,7 +79,6 @@ public class DeploymentDetailPanel extends DetailPanel {
     addActions();
   }
   
-  //TODO 部署详细信息 删除按钮
   protected void addActions() {
     // Delete button
     Button deleteButton = new Button(i18nManager.getMessage(Messages.DEPLOYMENT_DELETE));
@@ -129,7 +128,6 @@ public class DeploymentDetailPanel extends DetailPanel {
     addDetailComponent(taskDetails);
   }
   
-  //TODO 部署详细  添加流程信息列表
   protected void addProcessDefinitionLinks() {
     List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefinitionQuery()
       .deploymentId(deployment.getId())
@@ -171,7 +169,7 @@ public class DeploymentDetailPanel extends DetailPanel {
       return processDefinition.getKey();
     }
   }
-  //TODO 部署详细信息, 添加资源部署信息列表
+  
   protected void addResourceLinks() {
     List<String> resourceNames = repositoryService.getDeploymentResourceNames(deployment.getId());
     Collections.sort(resourceNames); // small nr of elements, so we can do it in-memory

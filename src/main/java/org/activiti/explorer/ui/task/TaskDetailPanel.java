@@ -107,21 +107,14 @@ public class TaskDetailPanel extends DetailPanel {
     this.centralLayout = new VerticalLayout();
     centralLayout.setMargin(true);
     setDetailContainer(centralLayout);
-    //头信息,任务头
+    
     initHeader();
-    //描述和签收按钮
     initDescriptionAndClaimButton();
-    //流程链接
     initProcessLink();
-    //父任务
     initParentTaskLink();
-    //人员列表
     initPeopleDetails();
-    //子任务
     initSubTasks();
-    //附件
     initRelatedContent();
-    //form表单
     initTaskForm();
     
   }
@@ -173,7 +166,7 @@ public class TaskDetailPanel extends DetailPanel {
     initClaimButton(layout);
     initDescription(layout);
   }
-//TODO 加载签收 button
+
   protected void initClaimButton(HorizontalLayout layout) {
     if(!isCurrentUserAssignee() && canUserClaimTask()) {
       claimButton = new Button(i18nManager.getMessage(Messages.TASK_CLAIM));
@@ -239,7 +232,6 @@ public class TaskDetailPanel extends DetailPanel {
     });
   }
 
-  //TODO 任务属于 流程
   protected void initProcessLink() {
     if(task.getProcessInstanceId() != null) {
       ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
@@ -251,7 +243,6 @@ public class TaskDetailPanel extends DetailPanel {
       showProcessInstanceButton.addStyleName(Reindeer.BUTTON_LINK);
       showProcessInstanceButton.addListener(new ClickListener() {
         public void buttonClick(ClickEvent event) {
-        	//显示流程实例列表页面
           viewManager.showMyProcessInstancesPage(task.getProcessInstanceId());
         }
       });
@@ -269,7 +260,6 @@ public class TaskDetailPanel extends DetailPanel {
     }
   }
   
-  //TODO 父流程
   protected void initParentTaskLink() {
     if (task.getParentTaskId() != null) {
       final Task parentTask = taskService.createTaskQuery()
@@ -305,7 +295,6 @@ public class TaskDetailPanel extends DetailPanel {
     centralLayout.addComponent(relatedContent);
   }
   
-  //TODO 初始化form入口
   protected void initTaskForm() {
     // Check if task requires a form
     TaskFormData formData = formService.getTaskFormData(task.getId());
@@ -334,7 +323,7 @@ public class TaskDetailPanel extends DetailPanel {
           taskForm.clear();
         }
       });
-      // Only if current user is task's assignee 只有当前用户是任务的受让人才可编辑
+      // Only if current user is task's assignee
       taskForm.setEnabled(isCurrentUserAssignee());
       
       // Add component to page

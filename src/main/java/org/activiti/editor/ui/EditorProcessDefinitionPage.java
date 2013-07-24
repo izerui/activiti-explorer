@@ -87,7 +87,6 @@ public class EditorProcessDefinitionPage extends AbstractTablePage {
    return menuBar;
   }
   
-  //TODO 部署列表
   @Override
   protected Table createList() {
     final Table processDefinitionTable = new Table();
@@ -126,7 +125,7 @@ public class EditorProcessDefinitionPage extends AbstractTablePage {
     
     return processDefinitionTable;
   }
-//TODO 部署详细信息查看
+
   protected void showProcessDefinitionDetail(String selectedModelId) {
     detailPanel = new EditorProcessDefinitionDetailPanel(selectedModelId, this);
     setDetailComponent(detailPanel);
