@@ -194,13 +194,7 @@
           "title_de" : "Boolean",
           "value" : "boolean",
           "refToView" : ""
-        } , {
-          "id" : "c4",
-          "title" : "Enum",
-          "title_de" : "Enum",
-          "value" : "enum",
-          "refToView" : ""
-        }]
+        } ]
       }, {
         "id" : "formproperty_expression",
         "name" : "Expression",
