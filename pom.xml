@@ -73,16 +73,6 @@
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-common-rest</artifactId>
 			<version>${activiti.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.osgi</groupId>
-					<artifactId>org.osgi.core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>

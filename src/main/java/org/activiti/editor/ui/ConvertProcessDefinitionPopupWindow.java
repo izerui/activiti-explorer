@@ -14,13 +14,13 @@ package org.activiti.editor.ui;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 import java.net.URL;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 
 import org.activiti.bpmn.converter.BpmnXMLConverter;
-import org.activiti.bpmn.model.BaseElement;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.editor.constants.ModelDataJsonConstants;
 import org.activiti.editor.language.json.converter.BpmnJsonConverter;
@@ -126,7 +126,7 @@ public class ConvertProcessDefinitionPopupWindow extends PopupWindow implements 
           InputStreamReader in = new InputStreamReader(bpmnStream, "UTF-8");
           XMLStreamReader xtr = xif.createXMLStreamReader(in);
           BpmnModel bpmnModel = new BpmnXMLConverter().convertToBpmnModel(xtr);
-//          ((BaseElement)bpmnModel.getProcesses().get(0)).setId("fffffffffffffffff");
+          
           if (bpmnModel.getMainProcess() == null || bpmnModel.getMainProcess().getId() == null) {
             notificationManager.showErrorNotification(Messages.MODEL_IMPORT_FAILED, 
                 i18nManager.getMessage(Messages.MODEL_IMPORT_INVALID_BPMN_EXPLANATION));
