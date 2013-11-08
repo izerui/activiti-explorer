@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+	<artifactId>activiti-explorer</artifactId>
 	<groupId>com.izerui</groupId>
-	<version>5.13</version>
+	<version>5.14</version>
 	<packaging>jar</packaging>
 
 	<name>ActivitiExplorer</name>
@@ -12,7 +12,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.framework.version>3.1.2.RELEASE</spring.framework.version>
-		<activiti.version>5.13</activiti.version>
+		<activiti.version>5.14</activiti.version>
 		<batik.version>1.7</batik.version>
 	</properties>
 
@@ -250,7 +250,11 @@
 			<artifactId>batik-svggen</artifactId>
 			<version>${batik.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.1</version>
+		</dependency>
 
 	</dependencies>
 
@@ -303,5 +307,4 @@
 			<url>https://repository.sonatype.org/content/repositories/apache-snapshots</url>
 		</pluginRepository>
 	</pluginRepositories>
-	<artifactId>activiti-explorer</artifactId>
 </project>
