@@ -13,7 +13,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.junit.Test;
 
 /**
  * 请先启动服务器 启动命令: mvn jetty:run
@@ -21,8 +20,7 @@ import org.junit.Test;
  * @version createtime：2013年8月3日 下午10:22:52
  */
 public class TestRest {
-	@Test
-	public void test() throws Exception {
+	public static void main(String[] args) {
 		CredentialsProvider credsProvider = new BasicCredentialsProvider();
 		credsProvider.setCredentials(new AuthScope("localhost", 8080), new UsernamePasswordCredentials("kermit",
 				"kermit"));
@@ -37,12 +35,18 @@ public class TestRest {
 			} finally {
 				response.close();
 			}
-		} finally {
-			httpclient.close();
+		}catch(Exception e) {
+			e.getMessage();
+		}finally {
+			try {
+				httpclient.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
-	public void writeMessage(HttpResponse response) throws IllegalStateException, IOException {
+	public static void writeMessage(HttpResponse response) throws IllegalStateException, IOException {
 		System.out.println("results: ");
 		BufferedReader br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
 		String output;
