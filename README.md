@@ -1,7 +1,7 @@
 activiti-explorer
 =================
 
-activiti-explorer and rest integrated 5.14 maven-eclipse (source project)
+activiti-explorer and rest integrated ( version : 5.15.1 )
 
 mvn jetty:run
 
