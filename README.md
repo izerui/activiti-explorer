@@ -1,7 +1,7 @@
-activiti-explorer
+activiti-explorer-rest integrated
 =================
 
-activiti-explorer and rest integrated ( version : 5.15.1 )
+( version : 5.15.1 )
 
 mvn jetty:run
 
