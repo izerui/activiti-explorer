@@ -22,12 +22,12 @@ import org.apache.http.impl.client.HttpClients;
 public class TestRest {
 	public static void main(String[] args) {
 		CredentialsProvider credsProvider = new BasicCredentialsProvider();
-		credsProvider.setCredentials(new AuthScope("localhost", 8080), new UsernamePasswordCredentials("admin",
-				"21232f297a57a5a743894a0e4a801fc3"));
+		credsProvider.setCredentials(new AuthScope("localhost", 8080), new UsernamePasswordCredentials("kermit",
+				"kermit"));
 		CloseableHttpClient httpclient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider).build();
 		try {
 			HttpGet httpget = new HttpGet(
-					"http://localhost:8080/edp3/rest/repository/process-definitions");
+					"http://localhost:8080/activiti-explorer/service/repository/process-definitions");
 			System.out.println("executing request" + httpget.getRequestLine());
 			CloseableHttpResponse response = httpclient.execute(httpget);
 			try {
